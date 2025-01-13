@@ -76,6 +76,13 @@
     text-align: center;
 }
 
+.ultimas-novedades .book-img img {
+    transition: transform 0.3s ease-in-out; /* Añade una transición suave */
+}
+
+.ultimas-novedades .book-img:hover img {
+    transform: scale(1.1); /* Escala la imagen al 110% cuando el mouse está encima */
+}
 
 /* .categoria-1,
 .categoria-2,
