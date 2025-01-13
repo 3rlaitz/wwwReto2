@@ -77,12 +77,21 @@
 }
 
 .ultimas-novedades .book-img img {
-    transition: transform 0.3s ease-in-out; /* Añade una transición suave */
+    transition: transform 0.3s ease-in-out; /* Transición para la imagen */
 }
 
 .ultimas-novedades .book-img:hover img {
-    transform: scale(1.1); /* Escala la imagen al 110% cuando el mouse está encima */
+    transform: scale(1.1); /* Efecto de zoom para la imagen */
 }
+
+.ultimas-novedades .book {
+    transition: transform 0.3s ease-in-out; /* Transición para el contenedor completo */
+}
+
+.ultimas-novedades .book:hover {
+    transform: scale(1.1); /* Escala tanto la imagen como el título */
+}
+
 
 /* .categoria-1,
 .categoria-2,
