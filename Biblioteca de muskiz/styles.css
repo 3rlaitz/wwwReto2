@@ -93,6 +93,15 @@
 }
 
 
+
+.noticias .noticia-img:hover {
+    transform: scale(1.2);
+}
+
+.noticias .noticia-img {
+    transition: transform 0.2s ease-in-out;
+}
+
 /* .categoria-1,
 .categoria-2,
 .categoria-3,
