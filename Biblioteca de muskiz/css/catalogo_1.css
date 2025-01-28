@@ -63,3 +63,26 @@ main .titulo-catalogo {
     padding: 20px;
 }
 
+.libro {
+    transition: transform 0.4s ease-in-out; 
+}
+
+.libro:hover {
+    transform: scale(1.1); 
+}
+
+.texto {
+    transition: transform 0.3s ease-in-out; 
+}
+
+.texto:hover {
+    transform: scale(1.02); 
+}
+
+.autor {
+    transition: transform 0.2s ease-in-out; 
+}
+
+.autor:hover {
+    transform: scale(1.02); 
+}
