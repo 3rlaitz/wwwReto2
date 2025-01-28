@@ -18,7 +18,7 @@
     margin: 1%;
     background-color: #f9f9f9;
     padding: 2%;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: 20px;
     text-decoration: none;
 }
@@ -76,6 +76,7 @@
     text-align: center;
 }
 
+/* animaciones ultimas novedades */
 .ultimas-novedades .book-img img {
     transition: transform 0.3s ease-in-out;
 }
@@ -93,7 +94,21 @@
 }
 
 /* animaciones noticias */
+noticia .noticia-img img {
+    transition: transform 0.3s ease-in-out;
+}
 
+.noticia .noticia-img:hover img {
+    transform: scale(1.1); 
+}
+
+.noticia  {
+    transition: transform 0.3s ease-in-out; 
+}
+
+.noticia:hover {
+    transform: scale(1.1); 
+}
 
 
 /* .categoria-1,
