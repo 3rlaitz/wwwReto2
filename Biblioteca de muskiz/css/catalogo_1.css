@@ -22,22 +22,25 @@ main .libro {
     width: 300px;
     height: 550px;
     margin: 1%;
-    background-color: #f4f4f4;
     border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
 }
 
 main .titulo {
     color: black;
+    background-color: white;
     text-decoration: underline;
     text-align: center;
-    margin: 20px;
     font-weight: bold;
     font-size: 18px;
 }
 
 main .texto {
     margin: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     font-size: 14px;
 }
 
@@ -45,15 +48,18 @@ main .autor {
     color: rgb(58, 58, 58);
     text-decoration: wavy;
     margin: 20px;
+    margin-top: 0px;
     font-size: 14px;
 }
 
 main .imagen {
-    text-align: center;
-    margin: 28px;
+    margin: 15px;
+    margin-top: 25px;
+    width: 90%;
 }
 
 main .titulo-catalogo {
     text-align: center;
     padding: 20px;
 }
+
