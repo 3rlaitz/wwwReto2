@@ -51,6 +51,7 @@ main .autor {
 main .imagen {
     text-align: center;
     margin: 28px;
+    max-width: 60px;
 }
 
 main .titulo-catalogo {
