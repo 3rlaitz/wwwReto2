@@ -17,9 +17,15 @@
 
 .texto {
     padding: 20px;
-    grid-column: 1 /4;
+    display: grid;
+    grid-column: 1 / 4;
 }
 
-/* .img {
-    grid-row: ;
-} */
+img {
+    max-width: 500px;
+}
+
+.img {
+    grid-column: 4 / 5;
+    grid-row: 1 / 2;
+}
