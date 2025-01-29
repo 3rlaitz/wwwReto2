@@ -1,0 +1,1 @@
+/* alert para ver el texto que tiene cada libo al hacer click en la foto. en el catálogo y en en el index */
