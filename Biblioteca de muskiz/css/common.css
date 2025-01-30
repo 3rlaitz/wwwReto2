@@ -142,10 +142,10 @@ header .menu a {
 
 /* MEDIA QUERIES */
 
-@media (min-width: 320px) and (max-width: 768px){
+/* @media (max-width: 768px){
+    body {
+        background-color: #007BFF;
+    }
     
-}
 
-@media (min-width: 768px) and (max-width: 1200px){
-    
-}
+} */

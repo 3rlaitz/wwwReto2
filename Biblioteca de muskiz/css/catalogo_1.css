@@ -86,3 +86,16 @@ main .titulo-catalogo {
 .autor:hover {
     transform: scale(1.02); 
 }
+
+/* MEDIA QUERIES */
+
+@media (max-width: 884px) {
+    .flex-container {
+        margin-left: 20px;
+        margin-right: 20px;
+        
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 25px;
+    }
+}
