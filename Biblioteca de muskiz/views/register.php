@@ -18,21 +18,21 @@
     if (isset($_SESSION['username'])) {
         header('Location: account.php');
     }
+    include '.\conexion.php';
     ?>
     <header class="header">
         <!--este es el titulo-->
         <section class="title">
-            <img src="../img/muskiz_udala.jpg" alt="Logo Muskiz">
             <h1> BIBLIOTECA DE MUSKIZ</h1>
             <!--Aparatado para la pagina de inicio que te redige hacia otro lado-->
         </section>
         <nav class="menu">
             <ul>
-            <li><a href="/index.html">Inicio</a></li>
-                <li><a href="/views/noticias.html">Noticias</a></li>
-                <li><a href="/views/catalogo_1.html">Catalogo</a></li>
-                <li><a href="/views/acercade.html">Acerca de</a></li>
-                <li><a href="/views/register.php">Mi cuenta</a></li>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="catalogo_1.html">Catálogo</a></li>
+                <li><a href="acercade.html">Acerca de</a></li>
+                <li><a href="login.php">Mi cuenta</a></li>
             </ul>
         </nav>
     </header>
@@ -58,21 +58,31 @@
                         $email = $_POST['email'];
                         $password = $_POST['password'];
                         $password_sec = $_POST['password_sec'];
-
-                        if ($password !== $password_sec) {
-                            echo "Las contraseñas no coinciden. Por favor, inténtalo de nuevo.";
-                        } else {
-                            $_SESSION['username'] = $username;
-                            $_SESSION['user_name'] = $name;
-                            $_SESSION['user_email'] = $email;
-                            $_SESSION['user_pass'] = $password;
-                            header('Location: account.php');
+                        if (!empty($name) && !empty($username) && !empty($email) && !empty($password) && !empty($password_sec)) {
+                            if ($password !== $password_sec) {
+                                echo "Las contraseñas no coinciden. Por favor, inténtalo de nuevo.";
+                            } else {
+                                $insert = 'insert into usuarios (correo,nombre,usuario,contraseña) values ("'.$email.'","'.$name.'","'.$username.'","'.$password.'")';
+                                try {
+                                    $resultado = mysqli_query($CONEXION, $insert);
+                                    $_SESSION['username'] = $username;
+                                    $_SESSION['user_name'] = $name;
+                                    $_SESSION['user_email'] = $email;
+                                    $_SESSION['password'] = $password;
+                                    header('Location: account.php');
+                                } catch (\Throwable $th) {
+                                    echo '<p>Usuario Existente</p>';
+                                }
+                            }
                         }
                     }
                     ?>
                 </div>
             </article>
         </section>
+        <?php
+        mysqli_close($CONEXION);
+        ?>
     </main>
     <footer class="footer">
         <section class="footer-content">
@@ -80,19 +90,19 @@
                 <h2>Biblioteca de Muskiz</h2>
                 <p>Tu fuente de conocimiento y entretenimiento en Muskiz.</p>
                 <div class="footer-images">
-                    <div><img src="../img/muskiz_udala.jpg" alt="Logo Muskiz"></div>
-                    <div><img src="../img/Logo_govierno vasco.png" alt="Logo Gobierno Vasco"></div>
-                    <div><img src="../img/Logo_WWW.jpg" alt="Logo WWW"></div>
+                    <div><img src="../img/Logo_muskiz.png" alt="Logo Muskiz"></div>
+                    <div><img src="../img/Imaganes/Logo_govierno vasco.png" alt="Logo Gobierno Vasco"></div>
+                    <div><img src="../img/Imaganes/Logo_www.png" alt="Logo WWW"></div>
                 </div>
             </article>
             <article class="footer-section">
                 <h2>Enlaces Rápidos</h2>
                 <ul>
-                    <li><a href="/index.html">Inicio</a></li>
-                    <li><a href="/views/noticias.html">Noticias</a></li>
-                    <li><a href="/views/catalogo_1.html">Catalogo</a></li>
-                    <li><a href="/views/acercade.html">Acerca de</a></li>
-                    <li><a href="/views/register.php">Mi cuenta</a></li>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="catalogo_1.html">Catálogo</a></li>
+                    <li><a href="acercade.html">Acerca de</a></li>
+                    <li><a href="login.php">Mi cuenta</a></li>
                 </ul>
             </article>
             <article class="footer-section">

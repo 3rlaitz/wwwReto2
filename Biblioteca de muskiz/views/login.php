@@ -18,21 +18,21 @@
     if (isset($_SESSION['username'])) {
         header('Location: account.php');
     }
+    include '.\conexion.php';
     ?>
     <header class="header">
         <!--este es el titulo-->
         <section class="title">
-            <img src="../img/muskiz_udala.jpg" alt="Logo Muskiz">
             <h1> BIBLIOTECA DE MUSKIZ</h1>
             <!--Aparatado para la pagina de inicio que te redige hacia otro lado-->
         </section>
         <nav class="menu">
             <ul>
-                <li><a href="/index.html">Inicio</a></li>
-                <li><a href="/views/noticias.html">Noticias</a></li>
-                <li><a href="/views/catalogo_1.html">Catalogo</a></li>
-                <li><a href="/views/acercade.html">Acerca de</a></li>
-                <li><a href="/views/login.php">Mi cuenta</a></li>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="catalogo_1.html">Catálogo</a></li>
+                <li><a href="acercade.html">Acerca de</a></li>
+                <li><a href="login.php">Mi cuenta</a></li>
             </ul>
         </nav>
     </header>
@@ -51,9 +51,15 @@
                         if (isset($_POST['login-submit'])&& $_SERVER["REQUEST_METHOD"] == "POST") {
                             $user = $_POST['user'];
                             $password = $_POST['password'];
+                            $comprobacion = 'select * from usuarios where usuario="'.$user.'" and contraseña="'.$password.'"';
+                            $resultado = mysqli_query($CONEXION,$comprobacion);
+                            $filas=mysqli_num_rows($resultado);
 
-                            if ($user=='admin' && $password =='1234') {
-                                $_SESSION['username'] = $user;
+                            if ($filas==1) {
+                                while ($cuenta=mysqli_fetch_array($resultado)) {
+                                    $_SESSION['username'] = $cuenta['usuario'];
+                                    $_SESSION['password'] = $cuenta['contraseña'];
+                                }
                                 header('Location:account.php');
                             } else {
                                 echo "Nombre de usuario o contraseña incorrectos.";
@@ -64,6 +70,9 @@
                 </div>
             </article>
         </section>
+        <?php
+        mysqli_close($CONEXION);
+        ?>
     </main>
     <footer class="footer">
         <section class="footer-content">
@@ -71,19 +80,19 @@
                 <h2>Biblioteca de Muskiz</h2>
                 <p>Tu fuente de conocimiento y entretenimiento en Muskiz.</p>
                 <div class="footer-images">
-                    <div><img src="../img/muskiz_udala.jpg" alt="Logo Muskiz"></div>
-                    <div><img src="../img/Logo_govierno vasco.png" alt="Logo Gobierno Vasco"></div>
-                    <div><img src="../img/Logo_WWW.jpg" alt="Logo WWW"></div>
+                    <div><img src="../img/Logo_muskiz.png" alt="Logo Muskiz"></div>
+                    <div><img src="../img/Imaganes/Logo_govierno vasco.png" alt="Logo Gobierno Vasco"></div>
+                    <div><img src="../img/Imaganes/Logo_www.png" alt="Logo WWW"></div>
                 </div>
             </article>
             <article class="footer-section">
                 <h2>Enlaces Rápidos</h2>
                 <ul>
-                    <li><a href="/index.html">Inicio</a></li>
-                    <li><a href="/views/noticias.html">Noticias</a></li>
-                    <li><a href="/views/catalogo_1.html">Catalogo</a></li>
-                    <li><a href="/views/acercade.html">Acerca de</a></li>
-                    <li><a href="/views/login.php">Mi cuenta</a></li>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="catalogo_1.html">Catálogo</a></li>
+                    <li><a href="acercade.html">Acerca de</a></li>
+                    <li><a href="login.php">Mi cuenta</a></li>
                 </ul>
             </article>
             <article class="footer-section">
