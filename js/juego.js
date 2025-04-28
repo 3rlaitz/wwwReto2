@@ -19,7 +19,7 @@ $map.addEventListener('click', function (e) {
     $distance.innerHTML = `<h1>${distanceText}</h1>`;
 
     if (distance < 20 ) {
-        alert(`Has encontrado el tesoto en  ${intentos} intentos!`);
+        alert(`¡Has encontrado el tesoto en  ${intentos} intentos!`);
         location.reload();
     }
 });
