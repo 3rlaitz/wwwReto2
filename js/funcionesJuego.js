@@ -13,7 +13,7 @@ let getDistance = (e, target) => {
   // Te dice cómo de cerca o lejos estás del tesoro
 let getDistanceText = distance => {
     if (distance < 30) {
-        return "Tevas a Quemar!";
+        return "¡Tevas a Quemar!";
     } else if (distance < 40) {
         return "Muy Caliente";
     } else if (distance < 60) {
@@ -25,6 +25,6 @@ let getDistanceText = distance => {
     } else if (distance < 360) {
         return "Muy Frío";
     } else {
-        return "Helado!";
+        return "¡Helado!";
     }
 }
