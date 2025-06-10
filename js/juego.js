@@ -22,4 +22,4 @@ $map.addEventListener('click', function (e) {
         alert(`¡Has encontrado el tesoro en ${intentos} intentos!`);
         location.reload();
     }
-});
+});213
